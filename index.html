@@ -123,10 +123,10 @@
                             <div class="col-8">
                                 <div class="btn-group" data-toggle="buttons">
                                   <label class="btn btn-success btn-sm active">
-                                    <input type="radio" name="section" id="non-smoking" checked> Non-smoking
+                                    <input type="radio" name="section" id="section" value="non-smoking" checked> Non-smoking
                                   </label>
                                   <label class="btn btn-danger btn-sm">
-                                    <input type="radio" name="section" id="smoking"> Smoking
+                                    <input type="radio" name="section" value="smoking"> Smoking
                                   </label>
                                 </div>
                             </div>
@@ -215,6 +215,10 @@
                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-sm" id="carousel-pause"><span class="fa fa-pause"></span></button>
+                        <button class="btn btn-danger btn-sm" id="carousel-play"><span class="fa fa-play"></span></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -267,81 +271,6 @@
         </div>
     </div>
 
-    <div class="row row-content" id="reserve">
-        <div class="col-sm-8 offset-sm-2 col-12">
-            <div class="card">
-                <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                <div class="card-block">
-                    <form class="form">
-                        <div class="row form-group">
-                            <label for="guests" class="col-sm-2 col-form-label">Guests</label>
-                            <div class="col-sm-8 d-flex justify-content-between">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="1" checked>
-                                        1
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="2" checked>
-                                        2
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="3" checked>
-                                        3
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="4" checked>
-                                        4
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="5" checked>
-                                        5
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="guests" id="guests" value="6" checked>
-                                        6
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="date" class="col-form-label col-sm-2">
-                                Date and Time
-                            </label>
-                            <div class="col-sm-5 col-md-4">
-                                <div class="input-group">
-                                    <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
-                                    <input type="text" class="form-control" placeholder="Date" id="date">
-                                </div>
-                            </div>
-                            <div class="col-sm-5 col-md-4">
-                                <div class="input-group">
-                                    <div class="input-group-addon"><span class="fa fa-clock-o"></span></div>
-                                    <input type="text" class="form-control" placeholder="Time" id="time">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="offset-sm-2 col">
-                                <button type="submit" class="btn btn-primary">Reserve</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -387,6 +316,17 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#myCarousel').carousel({interval: 2000});
+            $('#carousel-pause').click(function(){
+                $('#myCarousel').carousel('pause');
+            });
+            $('#carousel-play').click(function(){
+                $('#myCarousel').carousel('cycle');
+            });
+        });
+    </script>
 </body>
 
 </html>
